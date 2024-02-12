@@ -25,9 +25,7 @@ public class User extends BaseEntity {
     @Column(name="name", nullable = false)
     private String name;
 
-    @Enumerated
-    @Column(columnDefinition = "tinyint")
-    private Gender gender;
+    private String gender;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
@@ -41,12 +39,7 @@ public class User extends BaseEntity {
     @OneToOne(mappedBy = "user")
     private Address address;
 
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"),
-            foreignKey = @ForeignKey(name = "fk_role_users_role_id")
-    )
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
 }

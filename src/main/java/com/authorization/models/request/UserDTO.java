@@ -3,12 +3,10 @@ package com.authorization.models.request;
 import lombok.Builder;
 import lombok.Getter;
 
+@Builder
 @Getter
-@Builder(toBuilder = true)
-public class RegisterUserDTO {
+public class UserDTO {
     private String username;
     private String password;
     private String name;
-    private String email;
-    private String gender;
 }
